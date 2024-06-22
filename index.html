@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario login (validaciones)</title>
+    <link rel="stylesheet" href="./style.css">
+
+    <script>
+        function validaPass() {
+            var p1 = document.getElementById("pass").value;
+            var p2 = document.getElementById("pass2").value;
+
+            if (p1 !== p2) {
+                alert("Confirma correctamente tu password");
+                return false;
+            }
+            return true;
+        }
+    </script>
+
+</head>
+<body>
+
+    <div class="container">
+        <form action="./procesar.php" method="POST" onsubmit="return validaPass()">
+            <h1 class="title">Formulario login con validaciones</h1>
+            <h2 class="subtitile">Registro de usuario</h2>
+
+            <label for="nombre">Nombre de usuario:</label>
+            <input type="text" class="input" name= "nombre" required
+            placeholder="Nombre..." minlength="3" maxlength="15"
+            pattern="[A-Za-z\s]+"> 
+
+            <label for="edad">Edad:</label>
+            <input type="number" class="input" name= "edad" required 
+            min="18" max="99" placeholder="Edad...">
+
+            <label for="pass">Password:</label>
+            <input type="password" class="input" name= "pass" minlength="6"
+            required placeholder="Contraseña..." maxlength="12" id="pass"
+            pattern="[A-Za-z]+">
+
+            <label for="pass2">Confirmar password:</label>
+            <input type="password" class="input" minlength="6"
+            required placeholder="Confirmar password..." maxlength="12"
+            name="pass2" id="pass2"> 
+
+            <input type="submit" class="button" value="Registrar">
+
+        </form>
+    </div>
+    
+</body>
+</html>
